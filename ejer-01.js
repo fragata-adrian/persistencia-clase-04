@@ -46,9 +46,10 @@ sequelize.sync()
     }))
     .then(jane => { 
         console.log(jane.toJSON()); 
-});
-
-Usuario.update({ nombre: 'Albertito' }, { where: { id: 2 } })
-.then(() => {
-    console.log('Realizado.')
 })
+.then(() => {
+    Usuario.update({ nombre: 'Albertito' }, { where: { id: 2 } })
+    .then(() => {
+        console.log('Realizado.')
+    })
+});

@@ -55,12 +55,13 @@ sequelize.sync()
     }))
     .then(jane => { 
         console.log(jane.toJSON()); 
-});
-
-Usuario.update({ apellido: 'Gonzales' }, {
-where: {
-    apellido: 'Perez' 
-    }
-}).then(() => {
-    console.log('Registro Actualizado.')
 })
+.then(() => {
+    Usuario.update({ apellido: 'Gonzales' }, {
+        where: {
+            apellido: 'Perez' 
+            }
+        }).then(() => {
+            console.log('Registro Actualizado.')
+        })
+});

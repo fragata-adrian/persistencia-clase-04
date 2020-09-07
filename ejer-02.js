@@ -55,12 +55,14 @@ sequelize.sync()
     }))
     .then(jane => { 
         console.log(jane.toJSON()); 
+})
+.then(() => {
+    Usuario.destroy({ 
+        where: {
+            apellido: 'Perez'
+        } 
+    }).then(() => {
+        console.log("Registro Eliminado.");
+    })
 });
 
-Usuario.destroy({ 
-    where: {
-        apellido: 'Perez'
-    } 
-}).then(() => {
-    console.log("Registro Eliminado.");
-})
